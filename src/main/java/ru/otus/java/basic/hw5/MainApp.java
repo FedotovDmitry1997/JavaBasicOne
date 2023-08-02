@@ -8,7 +8,7 @@ public class MainApp {
         int[] a3 = {1, 1, 1, 1, 1};
         masSumm(a1, a2, a3);
 
-        int[] a4 = {9, 4, 4, 1};
+        int[] a4 = {9, -4, -4 , -1};
         searchPoint(a4);
 
         int[] a5 = {5, 4, 3, 2, 1};
@@ -37,10 +37,15 @@ public class MainApp {
         int j = pointMas.length - 1, leftSum = 0, rightSum = 0;
         for (int i = 0; i < pointMas.length; i++) {
             if (i == j + 1) {
-
                 break;
             } else {
-                if (leftSum < rightSum) {
+                if (leftSum < rightSum && pointMas[i] >= 0) {
+                    leftSum += pointMas[i];
+                } else if (leftSum >= rightSum && pointMas[j] >= 0) {
+                    rightSum += pointMas[j];
+                    j--;
+                    i--;
+                } else if (leftSum > rightSum && pointMas[i] < 0) {
                     leftSum += pointMas[i];
                 } else {
                     rightSum += pointMas[j];
