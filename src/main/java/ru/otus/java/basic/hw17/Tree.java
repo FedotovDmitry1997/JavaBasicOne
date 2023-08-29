@@ -72,13 +72,4 @@ public class Tree implements SearchTree {
                 "value=" + value +
                 '}';
     }
-    //    public void printTree() {
-//        List<List<Integer>> result = new ArrayList<List<Integer>>();
-//        for (int i = 0, pow = 1;  pow < getSortedList().size(); i++, pow *= 2) {
-//            List<Integer> level = new ArrayList<>(pow);
-//            result.set(i, level);
-//        }
-//
-//    }
-
 }
