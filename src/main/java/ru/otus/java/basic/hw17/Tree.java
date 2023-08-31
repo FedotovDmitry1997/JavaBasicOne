@@ -8,9 +8,6 @@ public class Tree implements SearchTree {
     private Tree leftChild;
     private Tree rightChild;
 
-    public Tree() {
-    }
-
     public Tree(List<Integer> startList) {
         Tree root = makeTree(startList);
         value = root.value;
@@ -18,10 +15,12 @@ public class Tree implements SearchTree {
         rightChild = root.rightChild;
     }
 
+    private Tree() {}
+
     @Override
-    public Tree find(Integer element){
+    public Integer find(Integer element){
         if (value == element) {
-            return this;
+            return value;
         }
 
         if (element > value && rightChild != null) {
@@ -32,6 +31,7 @@ public class Tree implements SearchTree {
         }
         return null;
     }
+
     @Override
     public List getSortedList(){
         List<Integer> sortedList = new ArrayList<>();
@@ -39,6 +39,7 @@ public class Tree implements SearchTree {
         return sortedList;
 
     }
+
     private void elemToList(List<Integer> sortedList) {
         if (leftChild != null) {
             leftChild.elemToList(sortedList);
@@ -48,14 +49,10 @@ public class Tree implements SearchTree {
             rightChild.elemToList(sortedList);
         }
     }
-    public static List<Integer> startList() {
-        List<Integer> startList = new ArrayList<>();
-        for (int i = 0; i < 16; i++){
-            startList.add(i);
-        }
-        return startList;
-    }
-    public Tree makeTree(List<Integer> startList) {
+
+
+
+    private Tree makeTree(List<Integer> startList) {
         if (!startList.isEmpty()) {
             Tree node = new Tree();
             node.value = startList.get(startList.size() / 2);
