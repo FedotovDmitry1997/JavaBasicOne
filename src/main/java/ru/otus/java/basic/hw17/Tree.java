@@ -50,8 +50,6 @@ public class Tree implements SearchTree {
         }
     }
 
-
-
     private Tree makeTree(List<Integer> startList) {
         if (!startList.isEmpty()) {
             Tree node = new Tree();
