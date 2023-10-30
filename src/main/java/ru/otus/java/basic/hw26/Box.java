@@ -20,13 +20,15 @@ public class Box<T extends Fruit> {
         return boxWeight;
     }
     public boolean compare(Box<?> another) {
-        if (another != null && another != this) {
+        if (another != null) {
             return Math.abs(this.weight() - another.weight()) < 0.0001;
         }
         return false;
     }
     public void pourOver(Box<? super T> another) {
-        another.boxWithFruits.addAll(this.boxWithFruits);
+        if (this != another) {
+            another.boxWithFruits.addAll(this.boxWithFruits);
+        }
     }
 }
 
